@@ -43,4 +43,12 @@ class Team extends JetstreamTeam
         'updated' => TeamUpdated::class,
         'deleted' => TeamDeleted::class,
     ];
+
+    public function projects(): HasMany
+    {
+        return $this->hasMany(
+            related: Project::class,
+            foreignKey: 'team_id',
+        );
+    }
 }
