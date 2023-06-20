@@ -113,7 +113,7 @@
             <div class="flex">
 
               <!-- mobile hamburger -->
-              <div class="inline-block lg:hidden flex items-center mr-4">
+              <div class="lg:hidden flex items-center mr-4">
                 <button class="hover:text-blue-500 hover:border-white focus:outline-none navbar-burger"
                   @click="toggleSidebar()">
                   <svg class="h-5 w-5" v-bind:style="{ fill: 'black' }" viewBox="0 0 20 20"
