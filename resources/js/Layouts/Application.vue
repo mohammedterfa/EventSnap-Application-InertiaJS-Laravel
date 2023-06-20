@@ -130,8 +130,11 @@
           mfeifi
         </div>
 
-        <div class="w-full border-t-2 text-black px-8 py-6 lg:flex justify-between items-center">
-      <p class="mb-2 lg:mb-0">© Copyright 2020</p>
+
+
+      </div>
+      <div class="w-full border-t-2 bg-gray-100 text-black px-8 py-6 lg:flex justify-between items-center">
+      <p class="mb-2 lg:mb-0 ">© Copyright 2020</p>
 
       <div class="flex">
           <a href="#" class="mr-6 hover:text-gray-900">Terms of Service</a>
@@ -139,8 +142,6 @@
           <a href="#" class="hover:text-gray-900">About Us</a>
       </div>
   </div>
-
-      </div>
     </div>
   </div>
 </template>
