@@ -9,15 +9,14 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ChannelFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+
+    protected $model = Channel::class;
+
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->sentence(),
+            'project_id' => Project::factory(),
         ];
     }
 }
