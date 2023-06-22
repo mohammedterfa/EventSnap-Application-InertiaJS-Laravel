@@ -6,20 +6,25 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+
     public function up(): void
     {
-        Schema::create('events', function (Blueprint $table) {
-            $table->id();
+        Schema::create('events', static function (Blueprint $table) {
+            $table->ulid('id')->primary();
+
+            $table->string('name');
+            $table->string('icon');
+
+
+            $table->text('description');
+
+            $table->boolean('notify')->default(false);
+
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
+
     public function down(): void
     {
         Schema::dropIfExists('events');
