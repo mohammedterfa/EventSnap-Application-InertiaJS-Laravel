@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Factories;
 
 use App\Models\Team;
@@ -8,9 +10,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use Laravel\Jetstream\Features;
 
-class UserFactory extends Factory
+final class UserFactory extends Factory
 {
-
     protected $model = User::class;
 
 
@@ -46,7 +47,7 @@ class UserFactory extends Factory
      */
     public function withPersonalTeam(callable $callback = null): static
     {
-        if (! Features::hasTeamFeatures()) {
+        if ( ! Features::hasTeamFeatures()) {
             return $this->state([]);
         }
 

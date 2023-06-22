@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,7 +12,7 @@ use Laravel\Jetstream\Team as JetstreamTeam;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Team extends JetstreamTeam
+final class Team extends JetstreamTeam
 {
     use HasFactory;
     use HasUlids;

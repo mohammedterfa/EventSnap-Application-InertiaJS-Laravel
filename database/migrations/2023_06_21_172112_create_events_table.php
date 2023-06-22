@@ -14,11 +14,20 @@ return new class extends Migration
 
             $table->string('name');
             $table->string('icon');
-
+            $table->string('parser')->nullable();
 
             $table->text('description');
 
             $table->boolean('notify')->default(false);
+
+            $table->json('tags')->nullable();
+            $table->json('meta')->nullable();
+
+            $table
+                ->foreignUlid('channed_id')
+                ->index()
+                ->constrained()
+                ->cascadeOnDelete();
 
             $table->timestamps();
         });

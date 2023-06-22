@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -23,7 +25,7 @@ final class ProjectFactory extends Factory
     public function inactive(): ProjectFactory
     {
         return $this->state(
-            state: fn(array $attributes): array => [
+            state: fn (array $attributes): array => [
                 'status' => Status::INACTIVE,
             ],
         );
