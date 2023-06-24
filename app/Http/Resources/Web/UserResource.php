@@ -2,12 +2,13 @@
 
 namespace App\Http\Resources\Web;
 
+use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use JustSteveKing\Launchpad\Http\Resources\DateResource;
 
 /**
- * @var User $resource
+ * @property-read User $resource
  */
 class UserResource extends JsonResource
 {
@@ -22,6 +23,18 @@ class UserResource extends JsonResource
             'created' => new DateResource(
                 resource: $this->resource->created_at,
             ),
+
+            'team' => new TeamResource(
+                resource: $this->whenLoaded(
+                    relationship: 'currentTeam',
+                ),
+            ),
+
+            'teams' => TeamResource::collection(
+                resource: $this->whenLoaded(
+                    relationship:'teams',
+                ),
+            )
 
         ];
     }
