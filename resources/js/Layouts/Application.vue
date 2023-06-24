@@ -160,7 +160,7 @@
         </div>
 
         <div class="p-6 text-black h-10 bg-gray-100 mb-20">
-          gggrgdfgs
+
         </div>
 
 
@@ -184,7 +184,6 @@
 <script setup>
   import { computed } from 'vue';
   import { Link , usePage } from '@inertiajs/vue3';
-
+  import  Index  from '@/Pages/Projects/Index.vue';
   const user = usePage().props.auth.user;
-
 </script>

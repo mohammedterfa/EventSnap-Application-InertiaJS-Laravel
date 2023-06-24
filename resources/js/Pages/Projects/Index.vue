@@ -1,0 +1,10 @@
+<script setup>
+import Application from '@/Layouts/Application.vue';
+</script>
+
+
+<template>
+  <Application>
+    guierhguihreu
+  </Application>
+</template>
