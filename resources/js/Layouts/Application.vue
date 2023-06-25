@@ -160,7 +160,7 @@
         </div>
 
         <div class="p-6 text-black h-10 bg-gray-100 mb-20">
-
+          <slot />
         </div>
 
 
