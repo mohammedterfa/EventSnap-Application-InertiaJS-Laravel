@@ -2,18 +2,13 @@
 import Application from '@/Layouts/Application.vue';
 import  Container  from '@/Components/Container.vue';
 import Header from '@/Components/Header.vue';
-
+import Dropdown from '@/Layouts/Dropdown.vue'
 defineProps({
   projects: {
     type: Array,
     required: true,
   }
 })
-
-const statues = {
-  active: 'text-green-700 bg-green-50 ring-green-600/20',
-  inactive: 'text-yallow-800 bg-yellow-50 ring-yellow-600/20'
-}
 </script>
 
 
@@ -27,32 +22,38 @@ const statues = {
         />
       </section>
 
-      <section  class="py-6">
-        <ul role="list" class="divide-y divide-gray-100">
-          <li v-for="project in projects" :key="project.id" class="flex items-center justify-between">
-            <div class="min-w-0">
-              <div class="flex items-start gap-x-3">
-                <p class="text-sm font-semibold leading-6 text-gray-900">
-                  {{ project.name }}
-                </p>
 
-                <p
-                  class="text-green-700 bg-green-50 ring-green-600/20"
-                >
-                  {{ project.status }}
-                </p>
+
+      <section>
+        <!-- component -->
+
+
+          <div class="pt-5 pr-0 pb-0 pl-0 mt-5 mr-0 mb-0 ml-0" v-for="project in projects" :key="project.id">
+            <div class="sm:flex sm:items-center sm:justify-between sm:space-x-5">
+              <div class="flex items-center flex-1 min-w-0">
+                <img
+                    src="https://d34u8crftukxnk.cloudfront.net/slackpress/prod/sites/6/SlackLogo_CompanyNews_SecondaryAubergine_Hero.jpg?d=500x500&amp;f=fill" class="flex-shrink-0 object-cover rounded-full btn- w-10 h-10"/>
+                <div class="mt-0 mr-0 mb-0 ml-4 flex-1 min-w-0">
+                  <p class="text-lg font-bold text-gray-800 truncate">{{ project.name }}</p>
+                  <p class = "text-sm px-1 w-12 text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800">{{ project.status }}</p>
+                </div>
               </div>
 
-              <div class="mt-1 flex items-center gap-x-2 text-xs leading-5 text-gray-500">
-                <p class="whitespace-nowrap">
-                  Due on
-                  {{ project.dueDate }}
-                </p>
-              </div>
+              <Dropdown />
+
             </div>
-          </li>
-        </ul>
+
+
+          </div>
       </section>
     </Container>
   </Application>
 </template>
+
+<style>
+.dropdown:focus-within .dropdown-menu {
+  opacity:1;
+  transform: translate(0) scale(1);
+  visibility: visible;
+}
+    </style>
