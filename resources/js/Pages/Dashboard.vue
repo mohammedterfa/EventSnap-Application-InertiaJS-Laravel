@@ -3,5 +3,7 @@ import Application from '@/Layouts/Application.vue';
 </script>
 
 <template>
-    <Application></Application>
+    <Application>
+      this is Dashboard
+    </Application>
 </template>

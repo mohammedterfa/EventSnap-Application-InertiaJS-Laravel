@@ -13,18 +13,25 @@ final class HandleInertiaRequests extends Middleware
 {
     public function share(Request $request): array
     {
+        $user = $request->user();
+
+        // Check if the user is authenticated before attempting to load relationships
+        if ($user) {
+            $user->load(['currentTeam.projects.channels']);
+        }
+
         return array_merge(parent::share($request), [
             'auth' => [
-                'user' => $request->user()->load(['currentTeam.projects.channels'])
+                'user' => $user
                     ? new UserResource(
-                        resource: $request->user(),
-                    ) : null ,
-                    ],
+                        resource: $user,
+                    )
+                    : null,
+            ],
             'ziggy' => function () use ($request): array {
-                return array_merge((new Ziggy())->toArray(),
-                    [
-                        'location' => $request->url(),
-                    ]);
+                return array_merge((new Ziggy())->toArray(), [
+                    'location' => $request->url(),
+                ]);
             },
         ]);
     }
