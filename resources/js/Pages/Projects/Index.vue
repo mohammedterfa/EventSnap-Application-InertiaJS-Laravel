@@ -3,6 +3,7 @@ import Application from '@/Layouts/Application.vue';
 import  Container  from '@/Components/Container.vue';
 import Header from '@/Components/Header.vue';
 import Dropdown from '@/Layouts/Dropdown.vue'
+import { ref } from 'vue';
 defineProps({
   projects: {
     type: Array,
@@ -10,6 +11,7 @@ defineProps({
   }
 
 })
+
 </script>
 
 
@@ -22,6 +24,7 @@ defineProps({
             <h3>Create New project</h3>
             <div class="mt-3 sm:ml-4 sm:mt-0">
               <button
+              v-on:click.prevent="formOpen = ! formOpen; form.name = null"
               type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                 Create Project
               </button>
@@ -29,6 +32,27 @@ defineProps({
           </div>
       </section>
 
+      <section>
+        <form
+          v-show="formOpen"
+          v-on:submit.prevent="submit"
+        >
+
+        <div>
+          <label for="name">Project Name</label>
+          <input type="text"
+            id="name"
+            class="mt-1 block w-full"
+          >
+        </div>
+        <div class="flex items-center justify-end mt-4">
+          <button class="ml-4 bg-green-600">
+            Create
+          </button>
+        </div>
+
+        </form>
+      </section>
 
 
       <section>
